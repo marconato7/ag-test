@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "fb255882-e9ed-4a1d-9236-62263c63fe35",
+		"name": "ag-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24634622"
+	},
+	"item": [
+		{
+			"name": "produtos",
+			"item": [
+				{
+					"name": "Criar um novo produto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var last_created_product_code = pm.response.json().codigo;\r",
+									"\r",
+									"pm.collectionVariables.set\r",
+									"(\r",
+									"    \"last_created_product_code\",\r",
+									"    last_created_product_code\r",
+									");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ag_test_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"nome\":          \"{{$randomProductName}}\",\r\n    \"codigo_barras\": \"{{$randomHexColor}}\",\r\n    \"quantidade\":    {{$randomInt}},\r\n    \"preco\":         {{$randomPrice}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todos os produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar um produto pelo código",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/produtos/:codigo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos",
+								":codigo"
+							],
+							"variable": [
+								{
+									"key": "codigo",
+									"value": "{{last_created_product_code}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar um produto existente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ag_test_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"nome\":          \"{{$randomProductName}}\",\r\n    \"codigo_barras\": \"{{$randomHexColor}}\",\r\n    \"quantidade\":    {{$randomInt}},\r\n    \"preco\":         {{$randomPrice}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/produtos/:code",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos",
+								":code"
+							],
+							"variable": [
+								{
+									"key": "code",
+									"value": "{{last_created_product_code}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover um produto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{ag_test_access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/produtos/:codigo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"produtos",
+								":codigo"
+							],
+							"variable": [
+								{
+									"key": "codigo",
+									"value": "{{last_created_product_code}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "sign up",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var last_created_username = pm.response.json().username;\r",
+									"\r",
+									"pm.collectionVariables.set\r",
+									"(\r",
+									"    \"last_created_username\",\r",
+									"    last_created_username\r",
+									");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"${{$randomUserName}}\",\r\n    \"email\":    \"${{$randomEmail}}\",\r\n    \"password\": \"Abcdefghijk#0123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign in",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var ag_test_access_token = pm.response.json().access_token;\r",
+									"\r",
+									"pm.collectionVariables.set\r",
+									"(\r",
+									"    \"ag_test_access_token\",\r",
+									"    ag_test_access_token\r",
+									");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{last_created_username}}\",\r\n    \"password\": \"Abcdefghijk#0123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "last_created_product_codigo",
+			"value": ""
+		},
+		{
+			"key": "last_created_username",
+			"value": ""
+		},
+		{
+			"key": "last_created_product_code",
+			"value": ""
+		},
+		{
+			"key": "ag_test_access_token",
+			"value": ""
+		}
+	]
+}
