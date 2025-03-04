@@ -57,7 +57,7 @@ O arquivo Swagger/OpenAPI para importação em ferramentas de teste pode ser enc
 
 - Não me atrevi a empregar a biblioteca ```Zod``` pois não estou familiarizada com ela. Prefiro estudá-la e somente então aplicá-la na solução. Como validação, utilizei apenas aquilo o que o framework disponibiliza
 
-- Há muitas oportunidades para melhorias, principalmente nas questões de validação, autenticação, consultas no banco (estou utilizando um ORM, que geralmente não é performático em consultas/_queries_), etc
+- Há muitas oportunidades para melhorias, principalmente nas questões de validação, autenticação, consultas no banco (estou utilizando um ORM, que geralmente não é performático em consultas/_queries_), separação das camadas com seus respectivos DTOs (particularmente no _controller_ de usuários, que ficou bem primitivo), empregar o uso de _actions_/_commands_/_services_/_use cases_, etc
 
 - Na pasta ```postman```, disponibilizei a coleção que utilizei para executar testes durante o desenvolvimento (ela contém alguns _scripts_ que setam variáveis de coleção para facilitar a execução dos testes e também alguns _helpers_ para agilizar criação de produtos e usuários). Não inclui nenhum tipo de teste na solução (unitário, funcional, _smoke test_, etc)
 
