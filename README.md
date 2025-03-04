@@ -34,6 +34,11 @@ O arquivo Swagger/OpenAPI para importação em ferramentas de teste pode ser enc
 
 ## Explicação sobre as decisões técnicas adotadas durante o desenvolvimento
 
+### Containerização
+
+- A containerização que empreguei é para uso durante o desenvolvimento local e é bem primitiva
+- Para o ambiente de produção ou até mesmo para um ambiente de desenvolvimento mais profissional/sofisticado, um novo ```Dockerfile``` e ```docker-compose.yml``` devem ser elaborados
+
 ### Banco de Dados
 
 - O script responsável por montar o `schema` da solução pode ser encontrado em ```/docker/mariadb/schema.sql```
