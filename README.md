@@ -38,17 +38,24 @@ O arquivo Swagger/OpenAPI para importação em ferramentas de teste pode ser enc
 
 - O script do schema SQL pode ser encontrado em ```/docker/mariadb/schema.sql```
 
-- Não rejeitei a utilização do tipo ```decimal``` para o campo de ```quantidade``` do ```produto``` pois segui estritamente aquilo que está contido no documento com os requisitos funcionais. De fato, despertou curiosidade, mas eu teria que possuir acesso ao responsável por esta decisão para questioná-lo o que emabasou essa escolha e se devemos reconsiderar esta escolha
+- Não rejeitei a utilização do tipo ```decimal``` para o campo de ```quantidade``` do ```produto``` pois segui estritamente aquilo que está contido no documento com os requisitos funcionais. De fato, despertou curiosidade, mas eu teria que possuir acesso ao responsável por esta decisão para questioná-lo o que embasou essa escolha e se devemos reconsiderar esta escolha
 
 ### Boas Práticas e Considerações
 
 - Tentei manter o código simples e objetivo
+
 - O código que escrevo é carregado de opiniões, principalmente no que diz respeito a formatação/indentação do código-fonte 😂
+
 - Sou adepto da Arquitetura Limpa (_Clean Architecture_) e _Domain-driven Design_ (DDD), mas não incorporei muito disso na solução por se tratar de um projeto extremamente simples
+
 - Não utilizei Inteligência Articial para confeccionar o meu código. Para me auxiliar no desenvolvimento, utilizei estritamente [a documentação oficial do framework](https://docs.nestjs.com/), Google e Stack Overflow, além de cursos no YouTube
+
 - Não me atrevi a empregar a biblioteca ```Zod``` pois não estou familiarizada com ela. Prefiro estudá-la e somente então aplicá-la na solução. Como validação, utilizei apenas aquilo o que o framework disponibiliza
+
 - Há muitas oportunidades para melhorias, principalmente nas questões de validação, autenticação, consultas no banco (estou utilizando um ORM, que geralmente não é performático em consultas/_queries_), etc
-- Na pasta ```postman```, disponibilizei a coleção que utilizei para executar testes durante o desenvolvimento (ela contém alguns _scripts_ que setam variáveis de coleção para facilitar a execução dos testes, pois não inclui nenhum tipo de testes funcionais, unitários, _smoke tests_ e também contém alguns _helpers_ para facilitar a criação de usuários e produtos, etc)
+
+- Na pasta ```postman```, disponibilizei a coleção que utilizei para executar testes durante o desenvolvimento (ela contém alguns _scripts_ que setam variáveis de coleção para facilitar a execução dos testes e também alguns _helpers_ para agilizar criação de produtos e usuários). Não inclui nenhum tipo de teste na solução
+
 - Em caso de dúvidas, ficaria feliz em trocar uma idéia com vocês sobre a minha solução e sobre aquilo que sei 😉
 
 
