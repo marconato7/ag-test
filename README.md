@@ -1,4 +1,4 @@
-# AG TEST - Teste Técnico para a posição de programador Nodejs/NestJS
+# AG TEST - Teste Técnico para a posição de programador Node.js/NestJS
 
 ## Instruções de instalação e execução
 
@@ -36,7 +36,7 @@ O arquivo Swagger/OpenAPI para importação em ferramentas de teste pode ser enc
 
 ### Banco de Dados
 
-- O script do schema SQL pode ser encontrado em ```/docker/mariadb/schema.sql```
+- O script responsável por montar o `schema` da solução pode ser encontrado em ```/docker/mariadb/schema.sql```
 
 - Não rejeitei a utilização do tipo ```decimal``` para o campo de ```quantidade``` do ```produto``` pois segui estritamente aquilo que está contido no documento com os requisitos funcionais. De fato, despertou curiosidade, mas eu teria que possuir acesso ao responsável por esta decisão para questioná-lo o que embasou essa escolha e se devemos reconsiderar esta escolha
 
