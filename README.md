@@ -54,7 +54,7 @@ O arquivo Swagger/OpenAPI para importação em ferramentas de teste pode ser enc
 
 - Há muitas oportunidades para melhorias, principalmente nas questões de validação, autenticação, consultas no banco (estou utilizando um ORM, que geralmente não é performático em consultas/_queries_), etc
 
-- Na pasta ```postman```, disponibilizei a coleção que utilizei para executar testes durante o desenvolvimento (ela contém alguns _scripts_ que setam variáveis de coleção para facilitar a execução dos testes e também alguns _helpers_ para agilizar criação de produtos e usuários). Não inclui nenhum tipo de teste na solução
+- Na pasta ```postman```, disponibilizei a coleção que utilizei para executar testes durante o desenvolvimento (ela contém alguns _scripts_ que setam variáveis de coleção para facilitar a execução dos testes e também alguns _helpers_ para agilizar criação de produtos e usuários). Não inclui nenhum tipo de teste na solução (unitário, funcional, _smoke test_, etc)
 
 - Em caso de dúvidas, ficaria feliz em trocar uma idéia com vocês sobre a minha solução e sobre aquilo que sei 😉
 
@@ -142,7 +142,7 @@ JSON da resposta
 
 ## Autenticação
 
-Para endpoints que exigem autenticação (token), o seguinte cabeçalho HTTP (_header_) deve ser disponibilizado nas requisições:
+Para endpoints que exigem autenticação (_token_), o seguinte cabeçalho HTTP (_header_) deve ser disponibilizado nas requisições:
 
 ```http
 Authentication: Bearer {{ access_token }}
