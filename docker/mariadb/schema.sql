@@ -1,0 +1,22 @@
+
+CREATE DATABASE IF NOT EXISTS ag_test;
+
+USE ag_test;
+
+CREATE TABLE IF NOT EXISTS produtos
+(
+    codigo UUID NOT NULL DEFAULT UUID() PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    codigo_barras VARCHAR(255),
+    quantidade DECIMAL(10,2) NOT NULL,
+    preco DECIMAL(10,2) UNSIGNED NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS users
+(
+    id UUID NOT NULL DEFAULT UUID() PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
+);
+

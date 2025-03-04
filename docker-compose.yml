@@ -1,0 +1,51 @@
+
+services:
+
+  app:
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - mariadb
+    environment:
+      NODE_ENV: development
+      JWT_SECRET: ag_test
+      JWT_AUDIENCE: ag_test
+      JWT_ISSUER: ag_test
+      JWT_ACCESS_TOKEN_TTL: 3600
+    expose:
+      - 3000
+    hostname: app
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+
+  mariadb:
+      container_name: mariadb
+      environment:
+        MARIADB_ROOT_PASSWORD: mariadb
+        MARIADB_USER: mariadb
+        MARIADB_PASSWORD: mariadb
+      expose:
+        - 3306
+      hostname: mariadb
+      image: mariadb:latest
+      ports:
+        - 3306:3306
+      restart: unless-stopped
+      volumes:
+      - ./docker/mariadb:/docker-entrypoint-initdb.d
+      - ./docker/mariadb/data:/var/lib/mysql
+
+  adminer:
+      container_name: adminer
+      depends_on:
+        - mariadb
+      expose:
+        - 8080
+      hostname: adminer
+      image: adminer
+      ports:
+        - 8080:8080
+      restart: unless-stopped
+
